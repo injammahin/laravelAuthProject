@@ -35,14 +35,12 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'alpha_dash', 'max:15', 'unique:users,username'], // Ensure username is unique and only contains letters, numbers, dashes or underscores.
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'], // Specify the table and column for uniqueness check.
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->input('name'),
-            'username' => $request->input('username'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);
