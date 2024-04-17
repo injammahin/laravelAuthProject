@@ -16,12 +16,36 @@
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
-
+        <!---name---->
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
+         <!-- Username -->
+<div>
+    <x-input-label for="username" :value="__('Username')" />
+    <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" :value="old('username', $user->username)" required autocomplete="username" />
+    <x-input-error class="mt-2" :messages="$errors->get('username')" />
+</div>
+         <!-- phonenumber -->
+         <div>
+            <x-input-label for="phonenumber" :value="__('Phone Number')" />
+            <x-text-input id="phonenumber" name="phonenumber" type="text" class="mt-1 block w-full" :value="old('phonenumber', $user->phonenumber)" required autocomplete="phonenumber" />
+            <x-input-error class="mt-2" :messages="$errors->get('phonenumber')" />
+        </div>
+
+        <!-- Gender -->
+<div>
+    <x-input-label for="gender" :value="__('Gender')" />
+    <select id="gender" name="gender" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+        <option value="" disabled>Select Gender</option>
+        <option value="male" @if ($user->gender == 'male') selected @endif>Male</option>
+        <option value="female" @if ($user->gender == 'female') selected @endif>Female</option>
+        <option value="other" @if ($user->gender == 'other') selected @endif>Other</option>
+    </select>
+    <x-input-error class="mt-2" :messages="$errors->get('gender')" />
+</div>
 
         <div>
             <x-input-label for="email" :value="__('Email')" />

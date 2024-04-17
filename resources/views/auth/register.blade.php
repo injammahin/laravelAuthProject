@@ -51,7 +51,7 @@
     </div>
 <!-- phonenumber-->
 <div class="mt-4">
-    <x-input-label for="phonenumber" :value="__('phonenumber')" />
+    <x-input-label for="phonenumber" :value="__('Phone Number')" />
 
     <x-text-input id="phonenumber" class="block mt-1 w-full"
                     type="text"
