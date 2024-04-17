@@ -34,6 +34,12 @@
             <x-text-input id="phonenumber" name="phonenumber" type="text" class="mt-1 block w-full" :value="old('phonenumber', $user->phonenumber)" required autocomplete="phonenumber" />
             <x-input-error class="mt-2" :messages="$errors->get('phonenumber')" />
         </div>
+          <!-- address -->
+          <div>
+            <x-input-label for="address" :value="__('Address')" />
+            <x-text-input id="address" name="address" type="text" class="mt-1 block w-full" :value="old('address', $user->address)" required autocomplete="address" />
+            <x-input-error class="mt-2" :messages="$errors->get('address')" />
+        </div>
 
         <!-- Gender -->
 <div>

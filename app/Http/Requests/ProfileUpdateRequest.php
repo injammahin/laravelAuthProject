@@ -21,6 +21,7 @@ class ProfileUpdateRequest extends FormRequest
             'username' => 'required|string|max:255|unique:users,username,' . $this->user()->id,
             'phonenumber' => 'required|string|max:255',
             'gender' => 'required|in:male,female,other',
+            'address'=>'required|string|max:255',
         ];
     }
 }
