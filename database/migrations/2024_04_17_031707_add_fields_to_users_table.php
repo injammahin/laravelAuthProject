@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('username' )->unique()->after('email');
             $table->string('phonenumber')->unique()->after('username');
             $table->string('gender')->after('phonenumber');
+            
 
         });
     }
