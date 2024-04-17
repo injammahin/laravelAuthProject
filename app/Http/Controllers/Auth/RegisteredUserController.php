@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'], // Specify the table and column for uniqueness check.
             'phonenumber'=>['required','string','max:255','unique:users,phonenumber'],
             'gender'=>['required','string','in:male,female,other'],
+            'address'=>['required','string','max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -48,6 +49,7 @@ class RegisteredUserController extends Controller
             'username' => $request->input('username'),
             'phonenumber' => $request->input('phonenumber'),
             'gender' => $request->input('gender'),
+            'address'=>$request->input('address'),
             'password' => Hash::make($request->input('password')),
         ]);
 
